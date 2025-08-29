@@ -47,7 +47,7 @@ export default function Home() {
     <main className="min-h-screen bg-gradient-to-br from-emerald-600 to-teal-600 p-8">
       <div className="max-w-6xl mx-auto">
         <div className="text-center text-white mb-12">
-          <h1 className="text-6xl font-bold mb-4">👁️ Vision Template</h1>
+          <h1 className="text-6xl font-bold mb-4">Vision Template</h1>
           <p className="text-xl opacity-90">Analyze images with AI vision!</p>
         </div>
         

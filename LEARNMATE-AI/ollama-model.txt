@@ -1,1 +1,1 @@
-llama3:latest
+llama3

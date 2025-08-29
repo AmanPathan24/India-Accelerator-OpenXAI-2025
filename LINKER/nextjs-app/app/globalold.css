@@ -1,0 +1,359 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 30, 41, 59;
+  --background-start-rgb: 248, 250, 252;
+  --background-end-rgb: 241, 245, 249;
+  --primary-rgb: 99, 102, 241;
+  --secondary-rgb: 168, 85, 247;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 248, 250, 252;
+    --background-start-rgb: 15, 23, 42;
+    --background-end-rgb: 30, 41, 59;
+    --primary-rgb: 129, 140, 248;
+    --secondary-rgb: 196, 181, 253;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: radial-gradient(ellipse at top, rgb(var(--background-start-rgb)), rgb(var(--background-end-rgb)));
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Enhanced gradient backgrounds */
+.primary-gradient {
+  background: linear-gradient(135deg, rgb(var(--primary-rgb)) 0%, rgb(var(--secondary-rgb)) 100%);
+}
+
+.glass-morphism {
+  backdrop-filter: blur(16px) saturate(180%);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+@media (prefers-color-scheme: dark) {
+  .glass-morphism {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+}
+
+/* Animated background */
+.animated-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.animated-bg::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    transparent 0deg,
+    rgba(var(--primary-rgb), 0.1) 60deg,
+    rgba(var(--secondary-rgb), 0.1) 120deg,
+    transparent 180deg,
+    rgba(var(--primary-rgb), 0.05) 240deg,
+    rgba(var(--secondary-rgb), 0.05) 300deg,
+    transparent 360deg
+  );
+  animation: rotate 20s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Enhanced social media theme */
+.social-gradient {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.instagram-gradient {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.twitter-gradient {
+  background: linear-gradient(135deg, #1DA1F2 0%, #0d47a1 100%);
+}
+
+.linkedin-gradient {
+  background: linear-gradient(135deg, #0077b5 0%, #005582 100%);
+}
+
+.facebook-gradient {
+  background: linear-gradient(135deg, #1877f2 0%, #0d47a1 100%);
+}
+
+/* Enhanced card styles */
+.social-card {
+  backdrop-filter: blur(20px) saturate(180%);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.social-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.social-card:hover::before {
+  left: 100%;
+}
+
+.social-card:hover {
+  backdrop-filter: blur(25px) saturate(200%);
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.1),
+    0 10px 20px rgba(var(--primary-rgb), 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Button enhancements */
+.btn-primary {
+  background: linear-gradient(135deg, rgb(var(--primary-rgb)) 0%, rgb(var(--secondary-rgb)) 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 24px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(var(--primary-rgb), 0.3);
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(var(--primary-rgb), 0.4);
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Input enhancements */
+.input-enhanced {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 14px 18px;
+  color: rgb(var(--foreground-rgb));
+  font-size: 16px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.input-enhanced:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgb(var(--primary-rgb));
+  box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.2);
+}
+
+.input-enhanced::placeholder {
+  color: rgba(var(--foreground-rgb), 0.6);
+}
+
+/* Enhanced animations */
+.mood-indicator {
+  display: inline-block;
+  font-size: 2rem;
+  animation: gentle-bounce 3s infinite;
+}
+
+@keyframes gentle-bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-8px);
+  }
+  60% {
+    transform: translateY(-4px);
+  }
+}
+
+.hashtag-tag {
+  display: inline-block;
+  background: linear-gradient(135deg, rgb(var(--primary-rgb)) 0%, rgb(var(--secondary-rgb)) 100%);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  margin: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  user-select: none;
+}
+
+.hashtag-tag:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(var(--primary-rgb), 0.3);
+}
+
+.copy-button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.copy-button:hover {
+  transform: scale(1.05);
+}
+
+.copy-button.copied {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  transform: scale(0.95);
+}
+
+.tab-content {
+  animation: smooth-fade-in 0.5s ease-out;
+}
+
+@keyframes smooth-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Logo animation */
+.logo-text {
+  background: linear-gradient(135deg, rgb(var(--primary-rgb)) 0%, rgb(var(--secondary-rgb)) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 3s ease-in-out infinite;
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background: linear-gradient(135deg, rgb(var(--primary-rgb)) 0%, rgb(var(--secondary-rgb)) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+  50% {
+    background: linear-gradient(135deg, rgb(var(--secondary-rgb)) 0%, rgb(var(--primary-rgb)) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+}
+
+/* Floating elements */
+.floating-element {
+  animation: float 6s ease-in-out infinite;
+}
+
+.floating-element:nth-child(even) {
+  animation-delay: -3s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Responsive enhancements */
+@media (max-width: 768px) {
+  .btn-primary {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+  
+  .input-enhanced {
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+  
+  .hashtag-tag {
+    padding: 4px 8px;
+    font-size: 12px;
+    margin: 2px;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, rgb(var(--primary-rgb)) 0%, rgb(var(--secondary-rgb)) 100%);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, rgb(var(--secondary-rgb)) 0%, rgb(var(--primary-rgb)) 100%);
+}
